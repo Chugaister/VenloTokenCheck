@@ -47,19 +47,41 @@ class Scanner:
         return errorCode
 
 
-def verify(network: str, tokenAddress: str) -> dict:
-    response = {}
-    scanner = Scanner(network)
+def scannersInit() -> dict[str: Scanner]:
+    with open(path.join(DIR, "config.json"), "r") as file:
+        config = load(file)
+    networks = config.keys()
+    scanners = {}
+    for network in networks:
+        scanners[network] = Scanner(network)
+    return scanners
+
+
+scanners = scannersInit()
+
+
+def verify(network: str, tokenAddress: str):
+    result = {
+        "network": network,
+        "token_address": tokenAddress
+    }
+    try:
+        scanner = scanners[network]
+    except KeyError:
+        result["error_code"] = None
+        result["description"] = "unsupported network"
+        result["scam"] = None
+        return result
     if not scanner.isListed(tokenAddress):
-        response["errorCode"] = None
-        response["description"] = "token is not listed"
-        response["scam"] = None
-        return response
-    response["errorCode"] = scanner.getErrorCode(tokenAddress)
-    if response["errorCode"] != "":
-        response["description"] = "most likely token is scam"
-        response["scam"] = True
+        result["error_code"] = None
+        result["description"] = "token is not listed"
+        result["scam"] = None
+        return result
+    result["errorCode"] = scanner.getErrorCode(tokenAddress)
+    if result["errorCode"] != "":
+        result["description"] = "most likely token is scam"
+        result["scam"] = True
     else:
-        response["description"] = "token is clear"
-        response["scam"] = False
-    return response
+        result["description"] = "token is clear"
+        result["scam"] = False
+    return result
