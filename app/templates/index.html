@@ -1,1 +1,122 @@
-<h1>Nate higgers</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VenloTokenCheck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;0,700;0,800;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header id="header" class="header">
+      <div class="header-inner-wrapper container">
+        <div class="header-logo-container">
+          <img src="/img/logoLOGO.png" alt="logo" class="logoimg" />
+        </div>
+        <div class="header-navigation-container">
+          <nav class="header-navigation">
+            <ul class="header-link-list">
+              <li>
+                <a href="#">Main</a>
+              </li>
+              <li>
+                <a href="/API">API</a>
+              </li>
+              <li>
+                <a href="/contact-us">Contact us</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="description">
+      <div class="description-inner-wrapper container">
+        <div class="offer-container">
+          <h1 class="offer__title">
+            Venlo TokenCheck helps you to bypass scammer tokens
+          </h1>
+          <h2>
+            Algorithm tests token by simulating the process of buying and
+            selling the token
+          </h2>
+        </div>
+
+        <div class="img-container levitate">
+         
+          <img  id="img" src="/img/IMGIMGG.png" alt="img" class="descrip-img" />
+        </div>
+      </div>
+    </section>
+    <section class="check">
+      <div class="container">
+    <div class="instruction-container row">
+                <div class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1">
+                    <h2>Type in the adress of the token you want to check</h2>
+                </div>
+
+            </div>
+            <form>
+                <div class="row input-and-select-container">
+                    <div class="input-data col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1">
+                        <input type="text" class="address" required>
+                        <div class="underline"></div>
+                        <label class="label-address">Address</label>
+                    </div>
+
+                    <div class="select-data col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1">
+                        <select class="network" id="select" required>
+                            <option value=""> Choose the network...</option>
+                            <option value="Ethereum"> Ethereum</option>
+                            <option value="BSC"> BSC</option>
+                            <option value="..."> ...</option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class=" button-container col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1">
+                        <button type="submit" id="send-form"> Check</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+			</div>
+    </section>
+    <footer id="footer" class="footer">
+      <div class="container">
+				
+			</div>
+    </footer>
+		<script src="/static/script.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </body>
+</html>
