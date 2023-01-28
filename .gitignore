@@ -130,4 +130,7 @@ dmypy.json
 
 .idea
 config.py
-
+core/config.json
+core/contract/artifacts/
+core/contract/crib.txt
+core/contract/interfaces/artifacts/
