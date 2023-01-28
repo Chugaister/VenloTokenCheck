@@ -47,12 +47,14 @@ class Scanner:
         return errorCode
 
 
+with open(path.join(DIR, "config.json"), "r") as file:
+    config = load(file)
+available_networks = list(config.keys())
+
+
 def scannersInit() -> dict[str: Scanner]:
-    with open(path.join(DIR, "config.json"), "r") as file:
-        config = load(file)
-    networks = config.keys()
     scanners = {}
-    for network in networks:
+    for network in available_networks:
         scanners[network] = Scanner(network)
     return scanners
 
