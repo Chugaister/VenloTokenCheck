@@ -85,7 +85,7 @@ h3{
 }
 .description-inner-wrapper
 {
-	display: flex;
+    display: flex;
   height: 100%;
   align-items: center;
 	
@@ -198,10 +198,12 @@ h3{
 
 /*seleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeect*/
 .select-data {
-    margin-top: 10px;
+    margin-top: -10px;
+
     height: 40px;
     width: 300px;
     position: relative;
+
     
 }
 
@@ -211,7 +213,7 @@ h3{
     border: 3px solid rgba(126, 215, 240, 1);
     border-radius: 5px;
     padding-left: 30px;
-    min-height: 40px;
+    min-height: 50px;
     min-width: 300px;
     appearance: none;
     appearance: none;
@@ -220,13 +222,13 @@ h3{
     linear-gradient(135deg, rgba(126, 215, 240, 1) 50%, transparent 50%),
     linear-gradient(to right, rgba(126, 215, 240, 1), rgba(126, 215, 240, 1));
     background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 20px) calc(1em + 5px),
+    calc(100% - 15px) calc(1em + 5px),
     calc(100% - 2.5em) 0.5em;
      background-size:
     6px 6px,
     6px 6px,
-    2px 1.5em;
+    2px 2em;
     background-repeat: no-repeat;
 
 }
@@ -242,7 +244,7 @@ h3{
     background-size:
       6px 6px,
       6px 6px,
-      2px 1.5em;
+      2px 2em;
     background-repeat: no-repeat;
     border-color: rgb(255, 255, 255);
     outline: 0;
@@ -265,7 +267,8 @@ color:rgb(255, 255, 255);
 /*buttoooooooooooooooooooooooooooooooooooooooooon*/
 .button-container{
     margin-top: 60px;
-		margin-bottom:100px;
+    margin-bottom:10px;
+    padding-left: 15px;
 }
 .button-container button{
     font-size: 30px;
@@ -415,3 +418,14 @@ margin-top: 0;
   letter-spacing: 2px;
   font-size: 5rem;
 }
+/*rsuuuuuuuuuuuuuuuuuuuuult*/
+.result article p{
+    color: white;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+.result{
+    margin-top: 6.4rem;
+    margin-left: 95px;
+}
+
