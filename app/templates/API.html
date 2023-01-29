@@ -31,13 +31,13 @@
         <nav class="header-navigation">
           <ul class="header-link-list">
             <li>
-              <a href="/index">Main</a>
+              <a href="/templates/index.html">Main</a>
             </li>
             <li>
               <a href="#">API</a>
             </li>
             <li>
-              <a href="/contact-us">Contact us</a>
+              <a href="/templates/contact-us.html">Contact us</a>
             </li>
           </ul>
         </nav>
@@ -47,23 +47,36 @@
 
   <section class="slider" id="slider" >
 
+
     <div class="container slider-container  col-offset-1">
-      <div class="table-info">
-        <div class="hedline-container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="hedline-container col-lg-8">
+
           <h1>Network</h1>
+          </div>
+        <div class="col-lg-2"></div>
         </div>
 
-        <div class="example col-lg-5">
+        <div class="row">
+          <div class="col-lg-2"></div>
+        <div class="example col-lg-8">
           Example:
           https://hostname/api/networks
 
         </div>
+        <div class="col-lg-2"></div>
       </div>
+      <div class="row">
+        <div class="col-lg-2"></div>
       <div class="slider-button-container col-lg-8" id="slider-button">
         <button class="slider-button active" onclick="showDivs(0,1)">Requests</button>
         <button class="slider-button" onclick="showDivs(1,0)">Response</button>
       </div>
-
+      <div class="col-lg-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2"></div>
       <div class="my-slides col-lg-8">
         <div class="hedline-container">
           <h1>пусто блять</h1>
@@ -74,10 +87,13 @@
         <div class="example">
         <div class="response">{</div>
         <div class="response" style="padding-left: 2rem;">"status": "1",</div>
-        <div class="response" style="padding-left: 2rem;"> "result": ["BSC-testnet", "BSC", "Ethereum"]</div>
+        <div class="response" style="padding-left: 2rem;"> "result": ["BSC-testnet"]</div>
         <div class="response">}</div>
         </div>
         </div>
+        <div class="col-lg-2"></div>
+      </div>
+
       </div>
 
 
@@ -87,24 +103,37 @@
   <section class="slider" id="slider">
 
     <div class="container slider-container">
-      <div class="table-info">
-        <div class="hedline-container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+
+        <div class="hedline-container col-lg-8">
           <h1>Verify token</h1>
         </div>
-
-        <div class="example col-lg-7">
+        <div class="col-lg-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="example col-lg-8">
           Example:
           https://hostname/api/verify
           ?network=BSC-testnet
           &tokenAddress=0x2170Ed0880ac9A755fd29B2688956BD959F933F8
 
-        </div>
+Настя Волошина, [29.01.2023 18:21]
+</div>
+        <div class="col-lg-2"></div>
       </div>
+      <div class="row">
+        <div class="col-lg-2"></div>
       <div class="slider-button-container col-lg-8" id="slider-button">
         <button class="slider-button active" onclick="showDivs(2,3)">Requests</button>
         <button class="slider-button" onclick="showDivs(3,2)">Response</button>
       </div>
-			<div class="my-slides col-lg-8">
+      <div class="col-lg-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2"></div>
+      <div class="my-slides col-lg-8">
         <table class="table">
           <caption>
             Query Parameters
@@ -140,17 +169,21 @@
         <div class="response">}</div>
         </div>
         </div>
+        <div class="col-lg-2"></div>
       </div>
-
-
-    </div>
-  </section>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <br><br><br><br><br>
+      </div>
+    </footer>
 
   <script>
     let btns = document.getElementsByClassName("slider-button");
     let divs = document.getElementsByClassName("my-slides");
     divs[1].style.display = "none";
-    divs[3].style.display = "none"
+    divs[3].style.display = "none";
     function showDivs(x,y) {
       divs[x].style.display = "block";
       divs[y].style.display = "none";
