@@ -1,21 +1,20 @@
 const sendForm = document.querySelector('#send-form');
 let counter = 0;
-if(counter==0){
 sendForm.onclick = function (event) {
 
     let URLAddress = window.location.protocol + "//" + window.location.host + "/api/verify";
     const networkValue = document.querySelector('.network').value;
     const addressValue = document.querySelector('.address').value;
-    URLAddress = URLAddress + "?network=" + networkValue + "&tokenAddress=" + addressValue;
+    /*URLAddress = URLAddress + "?network=" + networkValue + "&tokenAddress=" + addressValue;*/
     console.log(URLAddress);
     let requestResult = new XMLHttpRequest();
     requestResult.open('GET', URLAddress );
-    requestResult.responseType = 'json';
+    // requestResult.responseType = 'json';
     requestResult.send();
-        if (addressValue != "" && networkValue != "") {
+        if (addressValue != "" && networkValue != "" && counter==0) {
         event.preventDefault();
         let listOfParameters = requestResult.response;
-         console.log(listOfParameters);
+         console.log(requestResult.response);
         let description = listOfParameters['response']['description'];
         let mySection = document.getElementById("result")
         let myArticle = document.createElement('article');
@@ -35,14 +34,8 @@ sendForm.onclick = function (event) {
 
         }
         counter++;
-
-
     }
 }
-
-
-}
-
 
 /*XMLHttpRequest()*/
 
