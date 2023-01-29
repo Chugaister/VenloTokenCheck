@@ -1,6 +1,6 @@
 const sendForm = document.querySelector('#send-form');
 let counter = 0;
-sendForm.onclick = function (event) {
+sendForm.onclick = async function (event) {
 
     let URLAddress = window.location.protocol + "//" + window.location.host + "/api/verify";
     const networkValue = document.querySelector('.network').value;
@@ -14,11 +14,13 @@ sendForm.onclick = function (event) {
     let requestResult = new XMLHttpRequest();
     requestResult.open('GET', URLAddress );
     requestResult.responseType = 'json';
-    requestResult.send();
+    await requestResult.send();
         if (addressValue != "" && networkValue != "" && counter==0) {
         event.preventDefault();
         let listOfParameters = requestResult.response;
          console.log(requestResult);
+         console.log(listOfParameters);
+
         let description = listOfParameters['response']['description'];
         let mySection = document.getElementById("result")
         let myArticle = document.createElement('article');
