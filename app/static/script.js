@@ -1,45 +1,47 @@
+console.log("0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7");
 const sendForm = document.querySelector('#send-form');
 let counter = 0;
 sendForm.onclick = async function (event) {
-
+    event.preventDefault();
     let URLAddress = window.location.protocol + "//" + window.location.host + "/api/verify";
     const networkValue = document.querySelector('.network').value;
     const addressValue = document.querySelector('.address').value;
-    // document.querySelector('.network').setCustomValidity('dima loh');
-    // document.querySelector('.address').setCustomValidity('dima loh');
+
     URLAddress = URLAddress + "?network=" + networkValue + "&tokenAddress=" + addressValue;
     console.log(URLAddress);
 
-    let requestResult = new XMLHttpRequest();
-    requestResult.open('GET', URLAddress );
-    requestResult.responseType = 'json';
-    await requestResult.send();
-        if (addressValue != "" && networkValue != "" && counter==0) {
-        event.preventDefault();
-        let description = requestResult?.response?.response?.description;
-         console.log(requestResult);
-         console.log(description);
 
-     //   let description = listOfParameters['response']['description'];
-        let mySection = document.getElementById("result")
-        let myArticle = document.createElement('article');
-        let info = document.createElement('p');
+    fetch(URLAddress).then(async (apiResult) => {
+        const result = await apiResult.json();
+        const myDescription = result.response.description;
+        const color = result.response.scam;
+        console.log(myDescription);
+        console.log(color);
 
-        myArticle.appendChild(info);
-        info.textContent = description;
-        mySection.appendChild(myArticle);
-        let color = description['response']['response']['scam'];
-        if (color == true) {
-            info.setAttribute("style", "color: rgb(92, 208, 128)")
-        } else if (color == false) {
-            info.setAttribute("style", "color: rgb(224, 53, 53)")
 
-        } else {
-            info.setAttribute("style", "color: white")
 
+        if (addressValue != "" && networkValue != "" && counter == 0) {
+            let mySection = document.getElementById("result")
+            let myArticle = document.createElement('article');
+            let info = document.createElement('p');
+
+            myArticle.appendChild(info);
+            info.textContent = myDescription;
+            mySection.appendChild(myArticle);
+
+
+            if (color == false) {
+                info.setAttribute("style", "color: rgb(92, 208, 128)")
+            } else if (color == true) {
+                info.setAttribute("style", "color: rgb(224, 53, 53)")
+
+            } else {
+                info.setAttribute("style", "color: white")
+
+            }
+            counter++;
         }
-        counter++;
-    }
+    });
 }
 
 /*XMLHttpRequest()*/
