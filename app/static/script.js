@@ -5,23 +5,22 @@ sendForm.onclick = async function (event) {
     let URLAddress = window.location.protocol + "//" + window.location.host + "/api/verify";
     const networkValue = document.querySelector('.network').value;
     const addressValue = document.querySelector('.address').value;
-
     // document.querySelector('.network').setCustomValidity('dima loh');
     // document.querySelector('.address').setCustomValidity('dima loh');
-
     URLAddress = URLAddress + "?network=" + networkValue + "&tokenAddress=" + addressValue;
     console.log(URLAddress);
+
     let requestResult = new XMLHttpRequest();
     requestResult.open('GET', URLAddress );
     requestResult.responseType = 'json';
     await requestResult.send();
         if (addressValue != "" && networkValue != "" && counter==0) {
         event.preventDefault();
-        let listOfParameters = requestResult.response;
+        let description = requestResult?.response?.response?.description;
          console.log(requestResult);
-         console.log(listOfParameters);
+         console.log(description);
 
-        let description = listOfParameters['response']['description'];
+     //   let description = listOfParameters['response']['description'];
         let mySection = document.getElementById("result")
         let myArticle = document.createElement('article');
         let info = document.createElement('p');
@@ -29,7 +28,7 @@ sendForm.onclick = async function (event) {
         myArticle.appendChild(info);
         info.textContent = description;
         mySection.appendChild(myArticle);
-        let color = listOfParameters['response']['scam'];
+        let color = description['response']['response']['scam'];
         if (color == true) {
             info.setAttribute("style", "color: rgb(92, 208, 128)")
         } else if (color == false) {
@@ -70,4 +69,3 @@ function InputInDropbox(jsonObj)
     option.setAttribute("value", String(networks[i]));
   }
 }
-
