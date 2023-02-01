@@ -1,6 +1,5 @@
 console.log("0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7");
 const sendForm = document.querySelector('#send-form');
-let alert = document.getElementsByClassName("select");
 let mySection = document.getElementById("result")
 let info = document.createElement('p');
 mySection.appendChild(info);
@@ -9,6 +8,21 @@ sendForm.onclick = async function (event) {
     let URLAddress = window.location.protocol + "//" + window.location.host + "/api/verify";
     const networkValue = document.querySelector('.network').value;
     const addressValue = document.querySelector('.address').value;
+        if(networkValue == ""){
+
+            info.textContent = "";
+            info.textContent = "Choose the network!";
+            info.setAttribute("style", "color: white")
+
+        }
+        if(addressValue == ""){
+
+            info.textContent = "";
+            info.textContent = "Enter the address!";
+            info.setAttribute("style", "color: white");
+            return;
+
+        }
 
     URLAddress = URLAddress + "?network=" + networkValue + "&tokenAddress=" + addressValue;
     console.log(URLAddress);
@@ -17,6 +31,7 @@ sendForm.onclick = async function (event) {
         const result = await apiResult.json();
         const myDescription = result.response.description;
         const color = result.response.scam;
+        console.log(result);
         console.log(myDescription);
         console.log(color);
 
@@ -35,10 +50,7 @@ sendForm.onclick = async function (event) {
             }
 
         }
-        else if(networkValue == ""){
 
-
-        }
 
 
     });

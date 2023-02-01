@@ -53,3 +53,6 @@ def imgimg():
 @app.route("/img/figuresBACKGROUND.jpg")
 def bg():
     return send_file(join(DIR, "img", "figuresBACKGROUND.jpg"))
+@app.route("/img/logo.png")
+def logo1():
+    return send_file(join(DIR, "img", "logo.png"))
