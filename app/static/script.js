@@ -1,6 +1,9 @@
 console.log("0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7");
 const sendForm = document.querySelector('#send-form');
-let counter = 0;
+let alert = document.getElementsByClassName("select");
+let mySection = document.getElementById("result")
+let info = document.createElement('p');
+mySection.appendChild(info);
 sendForm.onclick = async function (event) {
     event.preventDefault();
     let URLAddress = window.location.protocol + "//" + window.location.host + "/api/verify";
@@ -10,7 +13,6 @@ sendForm.onclick = async function (event) {
     URLAddress = URLAddress + "?network=" + networkValue + "&tokenAddress=" + addressValue;
     console.log(URLAddress);
 
-
     fetch(URLAddress).then(async (apiResult) => {
         const result = await apiResult.json();
         const myDescription = result.response.description;
@@ -18,29 +20,27 @@ sendForm.onclick = async function (event) {
         console.log(myDescription);
         console.log(color);
 
+        if (addressValue != "" && networkValue != "" ) {
 
-
-        if (addressValue != "" && networkValue != "" && counter == 0) {
-            let mySection = document.getElementById("result")
-            let myArticle = document.createElement('article');
-            let info = document.createElement('p');
-
-            myArticle.appendChild(info);
+            info.textContent = "";
             info.textContent = myDescription;
-            mySection.appendChild(myArticle);
 
 
             if (color == false) {
                 info.setAttribute("style", "color: rgb(92, 208, 128)")
             } else if (color == true) {
                 info.setAttribute("style", "color: rgb(224, 53, 53)")
-
             } else {
                 info.setAttribute("style", "color: white")
-
             }
-            counter++;
+
         }
+        else if(networkValue == ""){
+
+
+        }
+
+
     });
 }
 

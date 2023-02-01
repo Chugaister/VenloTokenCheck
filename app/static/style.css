@@ -238,8 +238,8 @@ h3{
       linear-gradient(135deg, transparent 50%, rgba(126, 215, 240, 1) 50%),
       linear-gradient(to right, rgba(126, 215, 240, 1), rgba(126, 215, 240, 1));
     background-position:
-      calc(100% - 15px) 1em,
-      calc(100% - 20px) 1em,
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 20px) calc(1em + 2px),
       calc(100% - 2.5em) 0.5em;
     background-size:
       6px 6px,
@@ -419,7 +419,7 @@ margin-top: 0;
   font-size: 3rem;
 }
 /*rsuuuuuuuuuuuuuuuuuuuuult*/
-.result article p{
+.result p{
     color: white;
     letter-spacing: 2px;
     font-size: 30px;
