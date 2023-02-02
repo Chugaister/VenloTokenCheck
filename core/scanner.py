@@ -81,7 +81,7 @@ def verify(network: str, tokenAddress: str):
         return result
     if tokenAddress == "0x8BaBbB98678facC7342735486C851ABD7A0d17Ca":
         result["error_code"] = "TRANSFER_FROM_FAILED"
-        result["description"] = "token is seems to be scam"
+        result["description"] = "token seems to be scam"
         result["scam"] = True
         return result
     if not scanner.isListed(tokenAddress):
