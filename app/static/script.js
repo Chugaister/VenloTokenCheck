@@ -1,4 +1,6 @@
 console.log("0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7");
+console.log("0x0000000000000000000000000000000000000000");
+console.log("0x8BaBbB98678facC7342735486C851ABD7A0d17Ca");
 const sendForm = document.querySelector('#send-form');
 let mySection = document.getElementById("result")
 let info = document.createElement('p');
@@ -31,6 +33,8 @@ sendForm.onclick = async function (event) {
         const result = await apiResult.json();
         const myDescription = result.response.description;
         const color = result.response.scam;
+        let myError = result.response.error_code;
+        console.log(myError);
         console.log(result);
         console.log(myDescription);
         console.log(color);
@@ -45,11 +49,13 @@ sendForm.onclick = async function (event) {
                 info.setAttribute("style", "color: rgb(92, 208, 128)")
             } else if (color == true) {
                 info.setAttribute("style", "color: rgb(224, 53, 53)")
-            } else {
+                info.textContent=myDescription +" "+ myError;
+            } else  {
                 info.setAttribute("style", "color: white")
             }
 
         }
+
 
 
 
