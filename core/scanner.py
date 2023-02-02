@@ -72,6 +72,8 @@ def verify(network: str, tokenAddress: str):
         result["description"] = "invalid address"
         result["scam"] = None
         return result
+    if not Web3.isChecksumAddress(tokenAddress):
+        tokenAddress = Web3.toChecksumAddress(tokenAddress)
     try:
         scanner = scanners[network]
     except KeyError:
