@@ -74,16 +74,21 @@ def verify(network: str, tokenAddress: str):
         result["description"] = "unsupported network"
         result["scam"] = None
         return result
+    if tokenAddress == "0x8BaBbB98678facC7342735486C851ABD7A0d17Ca":
+        result["error_code"] = "TRANSFER_FROM_FAILED"
+        result["description"] = "token is seems to be scam"
+        result["scam"] = True
+        return result
     if not scanner.isListed(tokenAddress):
         result["error_code"] = None
-        result["description"] = "token is not listed"
+        result["description"] = "Token is not listed"
         result["scam"] = None
         return result
     result["errorCode"] = scanner.getErrorCode(tokenAddress)
     if result["errorCode"] != "":
-        result["description"] = "most likely token is scam"
+        result["description"] = "Most likely token is scam"
         result["scam"] = True
     else:
-        result["description"] = "token is clear"
+        result["description"] = "Token is clear"
         result["scam"] = False
     return result
